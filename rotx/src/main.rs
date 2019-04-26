@@ -1,10 +1,16 @@
-use std::env;
+use structopt::StructOpt;
+
+#[derive(Debug, StructOpt)]
+struct Opt {
+    #[structopt(name = "SHIFT")]
+    shift: String,
+    #[structopt(name = "MESSAGE")]
+    message: String,
+}
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-
-    match args[1].parse::<i32>() {
-        Result::Ok(val) => println!("You specified {}", val),
-        Result::Err(e) => println!("Oops. {}", e),
-    }
+    let args = Opt::from_args();
+    let shift: i32 = args.shift.parse().unwrap(); 
+    println!("{}", shift);
+    println!("{}", args.message);
 }
