@@ -14,3 +14,22 @@ fn main() {
     println!("{}", shift);
     println!("{}", args.message);
 }
+
+fn rotate(_c: char, _n: i32) -> char {
+    panic!("NotImplemented");
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn rotate_0() {
+        let result = rotate ('u', 0);
+        assert_eq!(result, 'u');
+    }
+    #[test]
+    fn rotate_1() {
+        let result = rotate ('u', 1);
+        assert_eq!(result, 'v');
+    }
+}
